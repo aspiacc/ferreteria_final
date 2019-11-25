@@ -1,5 +1,3 @@
-
-
 GRANT ALL ON springapp.* TO root@'%' IDENTIFIED BY 'admin';
 GRANT ALL ON springapp.* TO root@localhost IDENTIFIED BY 'admin';
 
