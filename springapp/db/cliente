@@ -1,0 +1,9 @@
+CREATE TABLE cliente (
+	cliente_id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    razon_social varchar(20),
+    cuit varchar(20),
+    telefono varchar(20),
+    codigo_postal varchar(20),
+    direccion_id INTEGER,
+    foreign key (direccion_id) references direccion (direccion_id)
+);
