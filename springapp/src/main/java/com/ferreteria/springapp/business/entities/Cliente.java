@@ -19,10 +19,13 @@ public class Cliente {
 	
 	@Column(name="razon_social")
 	private String razonSocial;
+	
 	@Column(name="cuit")
 	private String CUIT;
+	
 	@Column(name="telefono")
 	private String telefono;
+	
 	@Column(name="codigo_postal")
 	private String codigoPostal;
 	
