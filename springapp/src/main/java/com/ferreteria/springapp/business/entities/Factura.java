@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Table(name="factura")
 public class Factura {
@@ -18,8 +20,10 @@ public class Factura {
 	private Integer factura_id;
 	
 	@Column(name="fecha_emision")
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date fechaEmision;
 	
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	@Column(name="fecha_vencimiento")
 	private Date fechaVencimiento;
 	
