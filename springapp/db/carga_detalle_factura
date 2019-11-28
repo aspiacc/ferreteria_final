@@ -1,0 +1,5 @@
+INSERT INTO detalle_factura (detalle_factura_id, importe, cantidad, precio_unitario, monto_iva, precio_final, producto_id, factura_id) 
+VALUES ('1', '10', '2', '5', '1.21', '15', '2', '1');
+
+INSERT INTO detalle_factura (detalle_factura_id, importe, cantidad, precio_unitario, monto_iva, precio_final, producto_id, factura_id) 
+VALUES ('2', '20', '4', '10', '2.42', '30', '2', '1');
