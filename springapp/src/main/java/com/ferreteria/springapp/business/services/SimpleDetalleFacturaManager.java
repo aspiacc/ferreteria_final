@@ -17,4 +17,22 @@ public class SimpleDetalleFacturaManager implements DetalleFacturaManager {
 		this.detallesFactura = detallesFactura;
 	}
 
+	@Override
+	public void save(DetalleFactura detalleFactura) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public DetalleFactura get(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void delete(Integer id) {
+		// TODO Auto-generated method stub
+
+	}
+
 }

@@ -8,38 +8,37 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="detalle_factura")
+@Table(name = "detalle_factura")
 public class DetalleFactura {
-	
+
 	@Id
-	@Column(name="detalle_factura_id")
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "detalle_factura_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer detalle_factura_id;
-	
-	@Column(name="importe")
+
+	@Column(name = "importe")
 	private float importe;
-	
-	@Column(name="cantidad")
+
+	@Column(name = "cantidad")
 	private int cantidad;
-	
-	@Column(name="precio_unitario")
+
+	@Column(name = "precio_unitario")
 	private float precioUnitario;
-	
-	@Column(name="monto_iva")
+
+	@Column(name = "monto_iva")
 	private float montoIva;
-	
-	@Column(name="precio_final")
+
+	@Column(name = "precio_final")
 	private float precioFinal;
-	
-	@Column(name="producto_id")
+
+	@Column(name = "producto_id")
 	private Integer idProducto;
-	
-	@Column(name="factura_id")
+
+	@Column(name = "factura_id")
 	private Integer idFactura;
 
-	
-	//GETTERS & SETTERS
-	
+	// GETTERS & SETTERS
+
 	public Integer getDetalle_factura_id() {
 		return detalle_factura_id;
 	}
@@ -103,8 +102,5 @@ public class DetalleFactura {
 	public void setIdFactura(Integer idFactura) {
 		this.idFactura = idFactura;
 	}
-	
-	
-	
 
 }

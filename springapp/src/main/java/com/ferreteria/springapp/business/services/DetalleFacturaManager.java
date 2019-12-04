@@ -8,10 +8,10 @@ public interface DetalleFacturaManager {
 
 	public List<DetalleFactura> getDetallesFactura();
 
-//	public void save(DetalleFactura detalleFactura);
-//
-//	public DetalleFactura get(Integer id);
-//
-//	public void delete(Integer id);
+	public void save(DetalleFactura detalleFactura);
+
+	public DetalleFactura get(Integer id);
+
+	public void delete(Integer id);
 
 }
