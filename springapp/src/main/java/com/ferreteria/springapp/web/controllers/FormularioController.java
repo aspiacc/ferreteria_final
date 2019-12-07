@@ -14,7 +14,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ferreteria.springapp.business.entities.DetalleFactura;
 import com.ferreteria.springapp.business.services.DetalleFacturaManager;
+import com.ferreteria.springapp.business.services.FacturaManager;
 import com.ferreteria.springapp.business.services.JPADetalleFactura;
+import com.ferreteria.springapp.business.services.ProductoManager;
 
 @Controller
 public class FormularioController {
@@ -24,6 +26,10 @@ public class FormularioController {
 	@Autowired
 	private DetalleFacturaManager detalleFacturaManager;
 	@Autowired
+	private ProductoManager productoManager;
+	@Autowired
+	private FacturaManager facturaManager;
+	@Autowired
 	private JPADetalleFactura jpaDetalleFactura;
 
 	@RequestMapping(value = "/formdetallefactura.htm")
@@ -31,22 +37,27 @@ public class FormularioController {
 
 		Map<String, Object> myModel = new HashMap<String, Object>();
 		myModel.put("detalles", detalleFacturaManager.getDetallesFactura());
-
 		return new ModelAndView("formdetallefactura", "model", myModel);
 	}
 
 	@RequestMapping("/insertardetallefactura.htm")
 	public String newDetalleFacturaForm(Map<String, Object> model) {
 		DetalleFactura detalle = new DetalleFactura();
+		model.put("producto", productoManager.getProductos());
 		model.put("detalle", detalle);
 		return "insertardetallefactura";
 	}
 
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String saveDetalleFactura(@ModelAttribute("detalle") DetalleFactura detalle) {
-//		detalleFacturaManager.save(detalleFactura);
 		jpaDetalleFactura.save(detalle);
 		return "redirect:/";
+	}
+
+	@RequestMapping("/listadofacturas.htm")
+	public String newListadoFacturasForm(Map<String, Object> model) {
+		model.put("factura", facturaManager.getFacturas());
+		return "listadofacturas";
 	}
 
 }

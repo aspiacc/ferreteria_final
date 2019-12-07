@@ -1,43 +1,50 @@
 package com.ferreteria.springapp.business.entities;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="producto")
+@Table(name = "producto")
 public class Producto {
-	
+
 	@Id
-	@Column(name="producto_id")
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "producto_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer producto_id;
-	
-	@Column(name="stock")
+
+	@Column(name = "stock")
 	private int stock;
-	
-	@Column(name="descripcion")
+
+	@Column(name = "descripcion")
 	private String descripcion;
-	
-	@Column(name="precio_unitario")
+
+	@Column(name = "precio_unitario")
 	private float precioUnitario;
-	
-//	@ManyToOne(fetch = FetchType.LAZY)
-//	@JoinColumn(name="tipo_iva_id", nullable=false)
-//	private TipoIva tipoIva;
-//	
-//	@OneToMany(mappedBy="producto")
-//	private Set <DetalleFactura> detalleFactura;
-	
-	@Column(name="tipo_iva_id")
+
+	@Column(name = "tipo_iva_id")
 	private Integer idTipoIva;
-	
-	
-	//GETTERS & SETTERS
-	
+
+	@ManyToOne
+	@MapsId("tipo_iva_id")
+	@JoinColumn(name = "tipo_iva_id", nullable = false)
+	private TipoIva tipoIva;
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "producto")
+	private List<DetalleFactura> detalleFactura;
+
+	// GETTERS & SETTERS
+
 	public Integer getProducto_id() {
 		return producto_id;
 	}
@@ -77,7 +84,29 @@ public class Producto {
 	public void setIdTipoIva(Integer idTipoIva) {
 		this.idTipoIva = idTipoIva;
 	}
-	
-	
+
+//	public TipoIva getTipoIva() {
+//		return tipoIva;
+//	}
+//
+//	public void setTipoIva(TipoIva tipoIva) {
+//		this.tipoIva = tipoIva;
+//	}
+
+	public List<DetalleFactura> getDetalleFactura() {
+		return detalleFactura;
+	}
+
+	public void setDetalleFactura(List<DetalleFactura> detalleFactura) {
+		this.detalleFactura = detalleFactura;
+	}
+
+	public TipoIva getTipoIva() {
+		return tipoIva;
+	}
+
+	public void setTipoIva(TipoIva tipoIva) {
+		this.tipoIva = tipoIva;
+	}
 
 }

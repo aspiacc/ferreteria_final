@@ -1,0 +1,5 @@
+use springapp;
+insert into direccion (provincia, localidad, calle, numero, codigo_postal) values ('Cordoba', 'Capital', 'Rondeau', '100', '5000');
+insert into direccion (provincia, localidad, calle, numero, codigo_postal) values ('Cordoba', 'Cruz Eje', 'Rivera', '200', '5001');
+insert into direccion (provincia, localidad, calle, numero, codigo_postal) values ('Cordoba', 'VCP', 'Rivadavia', '300', '5002');
+insert into direccion (provincia, localidad, calle, numero, codigo_postal) values ('Cordoba', 'Capital', 'Balcarse', '400', '5000');

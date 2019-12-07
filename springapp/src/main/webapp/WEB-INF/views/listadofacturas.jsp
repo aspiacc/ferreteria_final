@@ -2,20 +2,16 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <html>
-<head>
 <!-- Bootstrap CSS -->
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
-	
-  <head>
-  <!-- Required meta tags -->
+<head>
+<!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  
-  
 <title><fmt:message key="title" /></title>
 <style>
 .error {
@@ -34,7 +30,7 @@
                     <a class="nav-link" href="#">Ventas </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<c:url value="listadofacturas.htm"/>">Listado de Facturas</a>
+                    <a class="nav-link" href="#">Listado de Facturas<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Articulos</a>
@@ -47,46 +43,37 @@
     </nav>
 </head>
 <body>
-	<div align="center" style="width:50%; margin:auto" class="col text-center" class="bg-info text-white" >
-		<h2>Nuevo Detalle</h2>
-		<br>
-		<form:form action="save" method="post" modelAttribute="detalle">
-			<table border="2" class="table table-striped">
-				<tr>
-					<td>Importe:</td>
-					<td><form:input path="importe" /></td>
-				</tr>
-				<tr>
-					<td>Cantidad:</td>
-					<td><form:input path="cantidad" /></td>
-				</tr>
-				<tr>
-					<td>Precio Unitario:</td>
-					<td><form:input path="precioUnitario" /></td>
-				</tr>
-				<tr>
-					<td>IVA:</td>
-					<td><form:input path="montoIva" /></td>
-				</tr>
-				<tr>
-					<td>Precio Final:</td>
-					<td><form:input path="precioFinal" /></td>
-				</tr>				
-				<tr>
-					<td>Producto:</td>
-					<td><form:input path="idProducto" /></td>
-				</tr>
-				<tr>
-					<td>Factura:</td>
-					<td><form:input path="idFactura" /></td>
-				</tr>
-				<tr>
-					<td colspan="2" style="text-align: center"><input class="btn btn-primary" type="submit" value="Guardar" ></td>
-					
-				</tr>
-			</table>
-		</form:form>
+	<div align="center">
+		<h2>Listado de Facturas</h2>
+		
 	</div>
+	<table class="table table-striped" style="background-position: center;">
+        <thead>
+            <tr>
+                
+                <th scope="col">Codigo</th>
+                <th scope="col">Fecha Emision</th>
+                <th scope="col">Subtotal</th>
+                <th scope="col">Estado</th>
+                <th scope="col">aca va el budget</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                 <c:forEach items="${factura}" var="fac">
+                <td> <c:out value="${fac.factura_id}"/> </td>
+                <td> <c:out value="${fac.fechaEmision}"/> </td>
+                <td> <c:out value="${fac.factSubTotal}"/> </td>
+                <td> <c:out value="${fac.estado}"/> </td>
+                
+                <td><span class="badge badge-pill badge-success">OK</span></td>
+                 </c:forEach>
+            </tr>
+
+        </tbody>
+    </table>
+	<br>
+	<br>
 	<div class="container">
   <div class="row">
     <div class="col text-center">
@@ -96,7 +83,5 @@
     </div>
   </div>
 </div>
-	
-<%-- 	<a href="<c:url value="formdetallefactura.htm"/>">Volver</a> --%>
 </body>
 </html>

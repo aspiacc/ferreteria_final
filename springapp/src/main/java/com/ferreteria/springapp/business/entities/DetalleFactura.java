@@ -5,6 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 import javax.persistence.Table;
 
 @Entity
@@ -31,11 +34,24 @@ public class DetalleFactura {
 	@Column(name = "precio_final")
 	private float precioFinal;
 
+//	@Column(name = "descripcion")
+//	private String descripcion;
+
 	@Column(name = "producto_id")
 	private Integer idProducto;
 
 	@Column(name = "factura_id")
 	private Integer idFactura;
+
+	@ManyToOne
+	@MapsId("factura_id")
+	@JoinColumn(name = "factura_id", nullable = false)
+	private Factura factura;
+
+	@ManyToOne
+	@MapsId("producto_id")
+	@JoinColumn(name = "producto_id", nullable = false)
+	private Producto producto;
 
 	// GETTERS & SETTERS
 
@@ -87,6 +103,14 @@ public class DetalleFactura {
 		this.precioFinal = precioFinal;
 	}
 
+//	public String getDescripcion() {
+//		return descripcion;
+//	}
+//
+//	public void setDescripcion(String descripcion) {
+//		this.descripcion = descripcion;
+//	}
+
 	public Integer getIdProducto() {
 		return idProducto;
 	}
@@ -95,12 +119,28 @@ public class DetalleFactura {
 		this.idProducto = idProducto;
 	}
 
+	public Factura getFactura() {
+		return factura;
+	}
+
+	public void setFactura(Factura factura) {
+		this.factura = factura;
+	}
+
 	public Integer getIdFactura() {
 		return idFactura;
 	}
 
 	public void setIdFactura(Integer idFactura) {
 		this.idFactura = idFactura;
+	}
+
+	public Producto getProducto() {
+		return producto;
+	}
+
+	public void setProducto(Producto producto) {
+		this.producto = producto;
 	}
 
 }
