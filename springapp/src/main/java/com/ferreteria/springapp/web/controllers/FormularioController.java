@@ -60,4 +60,10 @@ public class FormularioController {
 		return "listadofacturas";
 	}
 
+//	@RequestMapping(value = "delete/{detalle_factura_id}", method = RequestMethod.GET)
+//	public String delete(@PathVariable("detalle_factura_id") int id) {
+//		detalleFacturaManager.delete(id);
+//		return "formdetallefactura";
+//	}
+
 }

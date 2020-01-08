@@ -117,6 +117,9 @@ body {
                 <td>% <c:out value="${det.montoIva}"/> </td>
                 <td>$ <c:out value="${det.precioFinal}"/> </td>
                 <td><span class="badge badge-pill badge-success">OK</span></td>
+                <td>
+					<a href="${pageContext.request.contextPath }/formdetallefactura/delete/${det.detalle_factura_id }" onclick="return confirm('Estas seguro?')">Borrar</a>
+				</td>
             </tr>
 			</c:forEach>
         </tbody>
